@@ -26,5 +26,5 @@ class task
         task * next;
 
     private:
-
+    int removeTasks(task *& head);
 };
