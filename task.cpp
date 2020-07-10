@@ -57,7 +57,7 @@ int task::cpTask(task & task_toCopy)
     //done
     done = task_toCopy.done;
 
-    //note: we do NOT copy the next pointer
+    //we aren't copying the prev/next poitners
     return 1;
 }
 
@@ -168,3 +168,20 @@ int feeling::displayFeel()
     return 1;
 }
 
+//do we need a version of this that takes pointer?
+int feeling::copyFeeling(feeling & feeling_toCopy)
+{
+    //note: we do NOT delete prior material yet
+    name = new char[strlen(feeling_toCopy.name) + 1];
+    strcpy(name, feeling_toCopy.name);
+
+    //these memberwise copies are not working
+    done = new bool;
+    done = feeling_toCopy.done; //can we just copy bool
+
+    //huh1
+    min = feeling_toCopy.min;
+    curr = feeling_toCopy.curr;
+    max = feeling_toCopy.max;
+    return 1;
+}

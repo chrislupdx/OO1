@@ -115,36 +115,34 @@ int testFeels()
     char tN[20]; //taskName
     cin >> tN;
     cin.ignore(100, '\n');
-    //testing paramterized constructor
+    
     feeling oh_no(tN); //still non-dynamic...
-    cout << " displayfeel" << endl;
+
+    cout << "OG : " << endl;
     oh_no.displayFeel();
-    //testing copy + compare
-//    cout << "OG : " << endl;
-//    oh_no.displayTask();
-//    cout << endl;
-//
-//    feeling ruh_roh;
-//    ruh_roh.cpTask(oh_no);
-//    cout << "New: " << endl; 
-//    ruh_roh.displayTask();
-//    cout << endl;
-//
-//    cout << "Comparing..." << endl;
-////    if(newtask.cpTask(emptyTask))
-//    {
-//        cout << "match" << endl;
-//    }
-//    else
-//    {
-//        cout << " no match " << endl;
-//    }
-//    cout << endl;
-//
-//    newtask.displayTask();
-//    cout << "setting done..." << endl;
-//    newtask.setDone();
-//    newtask.displayTask();
-//
+    cout << endl;
+    
+    feeling ruh_roh;
+    ruh_roh.copyFeeling(oh_no); 
+    cout << "New: " << endl; 
+    ruh_roh.displayFeel();
+    cout << endl;
+
+    //cout << "Comparing..." << endl;
+    ////    if(newtask.cpTask(emptyTask))
+    //    {
+    //        cout << "match" << endl;
+    //    }
+    //    else
+    //    {
+    //        cout << " no match " << endl;
+    //    }
+    //    cout << endl;
+    //
+    //    newtask.displayTask();
+    //    cout << "setting done..." << endl;
+    //    newtask.setDone();
+    //    newtask.displayTask();
+    //
     return 1;
 }

@@ -46,6 +46,7 @@ class task
     private:
 };
 
+//this derived class has a doubly linked list of feelings
 class feeling: public task
 { 
     public:
@@ -61,7 +62,10 @@ class feeling: public task
         int increaseCurr();
         int decreaseCurr();
         int displayFeel(); //name/done + the int stats
-        //can we displayTask instead
+        int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers
+       
+
+        //can we displayTask instead to make it virtual?
 
     protected:
         //client NEVER interacts with the numbers
@@ -69,8 +73,7 @@ class feeling: public task
         int min;
         int curr;
 
-        //if I wanted a list of these...
-        task * next;
-
+        feeling * prev;
+        feeling * next;
     private:
 };
