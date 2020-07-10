@@ -112,14 +112,15 @@ feeling::feeling()
 {
     task();
     //do we need to evoke the task()
-    max = 0;
-    min = 0;
-    curr = 0;
+    max = 10;
+    min = 1;
+    curr = 1;
 }
 
 //default destructor for this derived class, ints have no value
 feeling::~feeling()
 {
+    //how do we do destructor for this
     //task::~task(); //no match for operator
     max = 0;
     min = 0;
@@ -209,6 +210,13 @@ int feeling::compareFeelCurr(feeling & feeling_toCompare)
 int feeling::setCurr(int val_toset)
 {
     curr = val_toset;
+    return 1;
+}
+
+//++curr
+int feeling::increaseCurr()
+{
+    curr++;
     return 1;
 }
 

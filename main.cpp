@@ -163,5 +163,9 @@ int testFeels()
     ruh_roh.displayFeel();
     cout << endl;
 
+    cout << "increasing curr " << endl;
+    ruh_roh.increaseCurr();
+    ruh_roh.displayFeel();
+
     return 1;
 }

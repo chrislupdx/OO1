@@ -54,14 +54,14 @@ class feeling: public task
 
         feeling(char * name_toadd); //creates name
 
-        ~feeling(); 
+        ~feeling();  //default destructor
 
-        int setCurr(int val_toset);
+        int setCurr(int val_toset); //sets curr to argVal
 
-        //could vierutaliat
+        //could virtualize?
         int setDone(); //oh hey could we virtualist this
        
-        //could virtulize
+        //could virtulize?
         int displayFeel(); //prints name, task status, curr/max/min
 
         int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers, does not copy prev/next
@@ -69,11 +69,12 @@ class feeling: public task
         //returns 0 if currs match in # val
         int compareFeelCurr(feeling & feeling_toCompare); 
 
-        
+        //increments curr by 1
+        int increaseCurr();
+
         //HAHAHAHAHA 
         int increaseMax();
         int decreaseMax();
-        int increaseCurr();
         int decreaseCurr();
         int increaseMin();
         int decreaseMin();
@@ -88,3 +89,22 @@ class feeling: public task
         feeling * next;
     private:
 };
+
+//class program : public task
+//{
+//    public:
+//    program();
+//    ~program();
+//    
+//    program(char * name_toadd);
+//    
+//    setOverWhelmed();  
+//    setHours(int hours_toset);
+//
+//    protected:
+//    bool is_overwhelmed;
+//    //int hours;
+//
+//    program * prev;
+//    program * next;
+//}
