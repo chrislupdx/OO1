@@ -106,50 +106,62 @@ int testTask()
 
 int testFeels()
 {
-
     cout << "Testing feel" << endl;
-
     cout << "Creating a feeling" << endl;
+
     cout << "Name your feeling: " << endl;
     char tN[20]; //taskName
     cin >> tN;
     cin.ignore(100, '\n');
-    
     feeling oh_no(tN); //still non-dynamic...
 
     cout << "OG : " << endl;
     oh_no.displayFeel();
     cout << endl;
-    
+
     feeling ruh_roh;
     ruh_roh.copyFeeling(oh_no); 
     cout << "New: " << endl; 
     ruh_roh.displayFeel();
     cout << endl;
 
-    cout << "Comparing..." << endl; //compares by curr val
-        if(ruh_roh.copyFeeling(oh_no))
-        {
-            cout << "match" << endl;
-        }
-        else
-        {
-            cout << " no match " << endl;
-        }
-        cout << endl;
-    
-        ruh_roh.displayFeel(); 
-        cout << endl;
+    cout << "Comparing Curr val..." << endl; //compares by curr val
+    if(ruh_roh.compareFeelCurr(oh_no) == 0)
+    {
+        cout << "match" << endl;
+    }
+    else
+    {
+        cout << " no match " << endl;
+    }
+    cout << endl;
 
-        cout << "setting done " << endl;
-        ruh_roh.setDone(); //oooh how do we grab it
-        ruh_roh.displayFeel();
-        cout << endl;
+    ruh_roh.displayFeel(); 
+    cout << endl;
+    cout << "setting curr " << endl;
+    cout << "input newCurr val: " << endl;
+    int newCurr;
+    cin >> newCurr;
+    cin.ignore(100, '\n');
+    ruh_roh.setCurr(newCurr);
+    ruh_roh.displayFeel(); 
+    cout << endl; 
 
-        //cout << "setting done..." << endl; 
-        //do set done for this one 
-        //ruh_roh.setDone();
-        //ruh_roh.displayFeel();
-    
+    cout << "Comparing Curr val..." << endl; //compares by curr val
+    if(ruh_roh.compareFeelCurr(oh_no) == 0)
+    {
+        cout << "match" << endl;
+    }
+    else
+    {
+        cout << "no match " << endl;
+    }
+
+    cout << "setting done " << endl;
+    ruh_roh.setDone(); //oooh how do we grab it
+    cout << endl;
+    ruh_roh.displayFeel();
+    cout << endl;
+
     return 1;
 }

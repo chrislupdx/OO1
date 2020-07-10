@@ -56,28 +56,29 @@ class feeling: public task
 
         ~feeling(); 
 
-        //do
         int setCurr(int val_toset);
+
+        //could vierutaliat
+        int setDone(); //oh hey could we virtualist this
+       
+        //could virtulize
+        int displayFeel(); //prints name, task status, curr/max/min
 
         int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers, does not copy prev/next
 
         //returns 0 if currs match in # val
         int compareFeelCurr(feeling & feeling_toCompare); 
 
-        //do 
+        
+        //HAHAHAHAHA 
         int increaseMax();
-        //do  
         int decreaseMax();
-        //do 
         int increaseCurr();
-        //do 
         int decreaseCurr();
-        //do
-        int setDone(); //oh hey could we virtualist this
-        //do
-        int displayFeel(); //name/done + the int stats
-
-    protected:
+        int increaseMin();
+        int decreaseMin();
+       
+            protected:
         //client NEVER interacts with the numbers
         int max;
         int min;

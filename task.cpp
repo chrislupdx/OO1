@@ -208,8 +208,8 @@ int feeling::compareFeelCurr(feeling & feeling_toCompare)
 //sets the calling class' curr
 int feeling::setCurr(int val_toset)
 {
-        curr = val_toset;
-        return 1;
+    curr = val_toset;
+    return 1;
 }
 
 //this is a wrapper that calls task's setDone, kan haz virtualization
