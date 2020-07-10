@@ -1,6 +1,5 @@
 //This is the implementation of the task.cpp file
-//tasks are the simplest unit in the class Coping.  
-//Task.cpp
+//tasks are the simplest unit in the class Coping.  //Task.cpp
 //Chris Lu
 
 #include "task.h"
@@ -62,7 +61,7 @@ int task::cpTask(task & task_toCopy)
 }
 
 //compares if the calling class' name matches (returns 1 if yes)
-int task::compareTask(task & task_toCompare)
+int task::compareTaskName(task & task_toCompare)
 {
     if(strcmp(name, task_toCompare.name) == 0)
     {
@@ -136,7 +135,7 @@ feeling::feeling(char * name_toadd)
    
     max = 10;
     curr = 1;
-    min = 0;
+    min = 1;
     //this->name = name_toadd; 
     //task(name_toadd); 
    //feeling::feeling()
@@ -149,6 +148,16 @@ int feeling::displayFeel()
     if(name)
     {
     std::cout << "Name: " << name << std::endl;
+    }
+    
+    //is this really doing what you want
+    if(done == false)
+    {
+        std::cout << "Task Status: incomplete" << std::endl;
+    }
+    else
+    {
+        std::cout << "Task Status: did" << std::endl;
     }
     
     if(curr)
@@ -185,3 +194,4 @@ int feeling::copyFeeling(feeling & feeling_toCopy)
     max = feeling_toCopy.max;
     return 1;
 }
+

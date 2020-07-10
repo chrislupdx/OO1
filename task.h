@@ -27,7 +27,7 @@ class task
         int displayTask();
 
         //returns 1 if match 0 if false
-        int compareTask(task & task_toCompare); //DOES NOT TAKE POINTERS 
+        int compareTaskName(task & task_toCompare); //DOES NOT TAKE POINTERS 
 
         //do we need a version of copmareTask that takes poitners
 
@@ -52,28 +52,38 @@ class feeling: public task
     public:
         //default constructor
         feeling();
-        
+
         feeling(char * name_toadd); //creates name
 
         ~feeling(); 
-        int setCurr(int val_toset);
-        int increaseMax();
-        int decreaseMax();
-        int increaseCurr();
-        int decreaseCurr();
-        int displayFeel(); //name/done + the int stats
-        int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers
        
+        int setCurr(int val_toset);
 
-        //can we displayTask instead to make it virtual?
+        int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers
+        
+        //do 
+        int increaseMax();
+        //do  
+        int decreaseMax();
+        //do 
+        int increaseCurr();
+        //do 
+        int decreaseCurr();
+        //do
+        int setDone(); //oh hey could we virtualist this
+        //do
+        int displayFeel(); //name/done + the int stats
+
+        //checks curr, do we/can we/should we combine these compares?k
+        int compareFeelCurr(feeling & feeling_toCompare); 
 
     protected:
-        //client NEVER interacts with the numbers
-        int max;
-        int min;
-        int curr;
+            //client NEVER interacts with the numbers
+            int max;
+            int min;
+            int curr;
 
-        feeling * prev;
-        feeling * next;
+            feeling * prev;
+            feeling * next;
     private:
 };

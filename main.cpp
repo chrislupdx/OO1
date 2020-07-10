@@ -88,14 +88,13 @@ int testTask()
     cout << endl;
 
     cout << "Comparing..." << endl;
-    if(newtask.cpTask(emptyTask))
+    if(newtask.compareTaskName(emptyTask) == 0)
     {
         cout << "match" << endl;
     }
     else
     {
-        cout << " no match " << endl;
-    }
+        cout << " no match " << endl; }
     cout << endl;
 
     newtask.displayTask();
@@ -128,21 +127,23 @@ int testFeels()
     ruh_roh.displayFeel();
     cout << endl;
 
-    //cout << "Comparing..." << endl;
-    ////    if(newtask.cpTask(emptyTask))
-    //    {
-    //        cout << "match" << endl;
-    //    }
-    //    else
-    //    {
-    //        cout << " no match " << endl;
-    //    }
-    //    cout << endl;
-    //
-    //    newtask.displayTask();
-    //    cout << "setting done..." << endl;
-    //    newtask.setDone();
-    //    newtask.displayTask();
-    //
+    cout << "Comparing..." << endl; //compares by name
+        if(ruh_roh.copyFeeling(oh_no))
+        {
+            cout << "match" << endl;
+        }
+        else
+        {
+            cout << " no match " << endl;
+        }
+        cout << endl;
+    
+        ruh_roh.displayFeel(); 
+        cout << "setting done..." << endl; 
+        
+        //do set done for this one 
+        //ruh_roh.setDone();
+        //ruh_roh.displayFeel();
+    
     return 1;
 }
