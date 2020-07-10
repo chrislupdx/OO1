@@ -127,7 +127,7 @@ int testFeels()
     ruh_roh.displayFeel();
     cout << endl;
 
-    cout << "Comparing..." << endl; //compares by name
+    cout << "Comparing..." << endl; //compares by curr val
         if(ruh_roh.copyFeeling(oh_no))
         {
             cout << "match" << endl;
@@ -139,8 +139,14 @@ int testFeels()
         cout << endl;
     
         ruh_roh.displayFeel(); 
-        cout << "setting done..." << endl; 
-        
+        cout << endl;
+
+        cout << "setting done " << endl;
+        ruh_roh.setDone(); //oooh how do we grab it
+        ruh_roh.displayFeel();
+        cout << endl;
+
+        //cout << "setting done..." << endl; 
         //do set done for this one 
         //ruh_roh.setDone();
         //ruh_roh.displayFeel();

@@ -70,7 +70,6 @@ int task::compareTaskName(task & task_toCompare)
     return 1;
 }
 
-
 //this is the base display
 int task::displayTask()
 {
@@ -132,13 +131,13 @@ feeling::feeling(char * name_toadd)
 {
     name = new char[strlen(name_toadd) + 1];
     strcpy(name, name_toadd); 
-   
+
     max = 10;
     curr = 1;
     min = 1;
     //this->name = name_toadd; 
     //task(name_toadd); 
-   //feeling::feeling()
+    //feeling::feeling()
     //still deciding whether min/max/curr are one
     //call the task param consturctor
 }
@@ -147,9 +146,9 @@ int feeling::displayFeel()
 {
     if(name)
     {
-    std::cout << "Name: " << name << std::endl;
+        std::cout << "Name: " << name << std::endl;
     }
-    
+
     //is this really doing what you want
     if(done == false)
     {
@@ -159,7 +158,7 @@ int feeling::displayFeel()
     {
         std::cout << "Task Status: did" << std::endl;
     }
-    
+
     if(curr)
     {
         //currently printing junk...
@@ -195,3 +194,27 @@ int feeling::copyFeeling(feeling & feeling_toCopy)
     return 1;
 }
 
+//returns 0 if currs match
+int feeling::compareFeelCurr(feeling & feeling_toCompare)
+{
+    //not sure the best >= in c++
+    if(curr == feeling_toCompare.curr)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+//sets the calling class' curr
+int feeling::setCurr(int val_toset)
+{
+        curr = val_toset;
+        return 1;
+}
+
+//this is a wrapper that calls task's setDone, kan haz virtualization
+int feeling::setDone()
+{
+    task::setDone();
+    return 1;
+}

@@ -28,8 +28,7 @@ class task
 
         //returns 1 if match 0 if false
         int compareTaskName(task & task_toCompare); //DOES NOT TAKE POINTERS 
-
-        //do we need a version of copmareTask that takes poitners
+        //do we need a version of copmareTask that takes poitners ??
 
         //toggles done bool, but how
         int setDone(); //we still need to figure how out we're gonna use it upstairs
@@ -56,11 +55,15 @@ class feeling: public task
         feeling(char * name_toadd); //creates name
 
         ~feeling(); 
-       
+
+        //do
         int setCurr(int val_toset);
 
-        int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers
-        
+        int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers, does not copy prev/next
+
+        //returns 0 if currs match in # val
+        int compareFeelCurr(feeling & feeling_toCompare); 
+
         //do 
         int increaseMax();
         //do  
@@ -74,16 +77,13 @@ class feeling: public task
         //do
         int displayFeel(); //name/done + the int stats
 
-        //checks curr, do we/can we/should we combine these compares?k
-        int compareFeelCurr(feeling & feeling_toCompare); 
-
     protected:
-            //client NEVER interacts with the numbers
-            int max;
-            int min;
-            int curr;
+        //client NEVER interacts with the numbers
+        int max;
+        int min;
+        int curr;
 
-            feeling * prev;
-            feeling * next;
+        feeling * prev;
+        feeling * next;
     private:
 };
