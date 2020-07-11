@@ -11,6 +11,7 @@ using namespace std;
 
 int testTask();
 int testFeels();
+int testProgram();
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
     cout << "Prog #1 Choices: " << endl;
     cout << " 1. create a task " << endl;
     cout << " 2. create a feel " << endl;
+    cout << " 3. create a program " << endl;
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -33,6 +35,7 @@ int main()
             cout << "Prog #1 Choices: " << endl;
             cout << " 1. create a task " << endl;
             cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
             cout << " 0 to exit " << endl;
             cout << "input a choice :" << endl;
             cin >> option;
@@ -45,9 +48,22 @@ int main()
             cout << "Prog #1 Choices: " << endl;
             cout << " 1. create a task " << endl;
             cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
             cout << " 0 to exit " << endl;
             cout << " input a choice: " << endl;
-            cin>> option;
+            cin >> option;
+            cin.ignore(100, '\n');
+        }
+        if(option == 3)
+        {
+            testProgram();
+            cout << "Prog #1 Choices: " << endl;
+            cout << " 1. create a task " << endl;
+            cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
+            cout << " 0 to exit " << endl;
+            cout << " input a choice: " << endl;
+            cin >> option;
             cin.ignore(100, '\n');
         }
 
@@ -154,18 +170,20 @@ int testFeels()
     }
     else
     {
-        cout << "no match " << endl;
+        cout << "not match" << endl;
     }
-
-    cout << "setting done " << endl;
-    ruh_roh.setDone(); //oooh how do we grab it
-    cout << endl;
+    
+    cout << "setting done " << endl; 
+    ruh_roh.setDone();
     ruh_roh.displayFeel();
-    cout << endl;
+    cout << endl;    
 
-    cout << "increasing curr " << endl;
-    ruh_roh.increaseCurr();
-    ruh_roh.displayFeel();
+    return 0;
+}
+
+int testProgram()
+{
+    cout << "testing program" << endl;
 
     return 1;
 }

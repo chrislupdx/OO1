@@ -12,6 +12,7 @@ task::task()
     name = NULL; 
     done = false; //default constructor invokes done false by default 
     next = NULL;
+    prev = NULL;
 }
 
 //parameterized constructor
@@ -225,4 +226,30 @@ int feeling::setDone()
 {
     task::setDone();
     return 1;
+}
+
+program::program()
+{
+    task(); //i thinnk
+    is_overwhelmed = false;
+    hours = 1;
+}
+
+program::~program()
+{
+    is_overwhelmed = false;
+    hours = 0; //as opposed to 1
+}
+
+//paramterized constructor takes a name
+program::program(char * name_toadd)
+{
+    name = new char[strlen(name_toadd) + 1];
+    strcpy(name, name_toadd);
+    
+    is_overwhelmed = false;
+    hours = 1;
+
+    prev = NULL;
+    next = NULL; 
 }
