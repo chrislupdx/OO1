@@ -10,39 +10,27 @@ class task
     public:
         //default constructor
         task();
-
         //this parameterized constructor only produces a name
         task(char * name);
-        //figure out the defaults
-
         //default destructor
         ~task();
-
         //copy function
         int cpTask(task & task_toCopy);
-
         //a version of cpTask that takes poiners?
-
         //display function displays the class it calls off of
         int displayTask();
-
         //returns 1 if match 0 if false
         int compareTaskName(task & task_toCompare); //DOES NOT TAKE POINTERS 
         //do we need a version of copmareTask that takes poitners ??
-
         //toggles done bool, but how
         int setDone(); //we still need to figure how out we're gonna use it upstairs
-
     protected:
         //this is the name of a the specific task being worked on/created 
         char * name; 
-
         bool done; 
-
         //pointer the next task
         task * next;
         task * prev;
-    private:
 };
 
 //this derived class has a doubly linked list of feelings
@@ -72,6 +60,9 @@ class feeling: public task
         //increments curr by 1
         int increaseCurr();
 
+        //returns 0 if faces match
+        int compareFeelName(feeling & feeling_tocp);
+        
         //HAHAHAHAHA 
        // int increaseMax();
        // int decreaseMax();
@@ -96,13 +87,16 @@ class program : public task
     program();
     ~program();
     program(char * name_toadd); //paramteraized name constructor
+    int displayProgram(); //we could virtualize it 
+    int copyProg(program & prog_tocopy);
+    int compareProgName(program & prog_tocp);
 //    setOverWhelmed();  
 //    setHours(int hours_toset);
-    
+//      setdone
     protected:
     bool is_overwhelmed;
     int hours;
-
+  
     program * prev;
     program * next;
 };

@@ -207,6 +207,16 @@ int feeling::compareFeelCurr(feeling & feeling_toCompare)
     return 1;
 }
 
+//return 0 if a match
+int feeling::compareFeelName(feeling & feeling_tocp)
+{
+    if(strcmp(name, feeling_tocp.name) == 0)
+    {
+        return 0;
+    }
+    return 1;
+}
+
 //sets the calling class' curr
 int feeling::setCurr(int val_toset)
 {
@@ -248,8 +258,59 @@ program::program(char * name_toadd)
     strcpy(name, name_toadd);
     
     is_overwhelmed = false;
-    hours = 1;
+    hours = 1; //we're setting it to a generic 1 bc 0 is hard to print
 
     prev = NULL;
     next = NULL; 
+}
+
+int program::displayProgram()
+{
+    if(name)
+    {
+        std::cout << "Name: " << name << std::endl;
+    }
+    if(done == false)
+    {
+        std::cout << "Task status: incomplete" << std:: endl;
+    }
+    else
+    {
+        std::cout << "Task status: did" << std::endl;
+    }
+    if(hours)
+    {
+        std::cout << "Hours: " << hours << std::endl;
+    }
+    if(is_overwhelmed == true)
+    {
+        std::cout << "Overwhelmed: yes" << std::endl;
+    }
+    else
+    {
+        std::cout << "Overwhelmed: no" << std::endl;
+    }
+
+    return 0;
+}
+
+//does not take/pass poitners
+int program::copyProg(program & prog_tocopy)
+{
+    //do we care about 2cp's parent(task) items other htan name
+    name = new char[strlen(prog_tocopy.name) + 1];
+    strcpy(name, prog_tocopy.name);
+
+    is_overwhelmed = new bool;
+    is_overwhelmed = prog_tocopy.is_overwhelmed;
+
+    hours = prog_tocopy.hours;
+    return 1;
+}
+
+//just compares name
+int program::compareProgName(program & prog_tocp)
+{
+    
+    return 1;
 }

@@ -172,11 +172,33 @@ int testFeels()
     {
         cout << "not match" << endl;
     }
+
+    cout << "increasing curr " << endl;
+    ruh_roh.increaseCurr();
+    ruh_roh.displayFeel();
     
     cout << "setting done " << endl; 
     ruh_roh.setDone();
     ruh_roh.displayFeel();
     cout << endl;    
+
+    cout << "compar task name " << endl;
+    cout << "first " << endl;
+    ruh_roh.displayFeel();
+    cout << endl;
+
+    cout << "second " << endl;
+    oh_no.displayFeel();
+    cout << endl;
+
+    if(ruh_roh.compareFeelName(oh_no) == 0)
+    {
+        cout << "match" << endl;
+    }
+    else
+    {
+        cout << "no match" << endl;
+    }
 
     return 0;
 }
@@ -184,6 +206,38 @@ int testFeels()
 int testProgram()
 {
     cout << "testing program" << endl;
+    cout << "creating a program " << endl;
+
+
+    cout << "Name your programming assingment: " << endl;
+    char tN[20]; //taskName
+    cin >> tN;
+    cin.ignore(100, '\n');
+    program oh_no(tN); //still non-dynamic...
+
+    oh_no.displayProgram();
+    cout << endl;
+
+    cout << "OG: " << endl;
+    oh_no.displayProgram();
+    cout << endl;
+
+    cout <<"New: " << endl;
+    program cpo;
+    cpo.copyProg(oh_no);
+    cpo.displayProgram();
+    cout << endl;
+
+    cout << "Comparing prog name: " << endl;
+    if(oh_no.compareProgName(cpo) == 0)
+    {
+        cout << "match" << endl;
+    }
+    else
+    {
+        cout << "no match " << endl;
+    }
+
 
     return 1;
 }
