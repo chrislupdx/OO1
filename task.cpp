@@ -12,7 +12,6 @@ task::task()
     name = NULL; 
     done = false; //default constructor invokes done false by default 
     next = NULL;
-    prev = NULL;
 }
 
 //parameterized constructor
@@ -238,6 +237,8 @@ int feeling::setDone()
     return 1;
 }
 
+feeling *& feeling::to_next() { return next;} //this getter returns the next node;
+
 program::program()
 {
     task(); //i thinnk
@@ -246,9 +247,9 @@ program::program()
 }
 
 program::~program()
-{
-    is_overwhelmed = false;
-    hours = 0; //as opposed to 1
+{//technically unnecessary unitializitng
+    //is_overwhelmed = false; 
+    //hours = 0; //as opposed to 1
 }
 
 //paramterized constructor takes a name
@@ -260,7 +261,6 @@ program::program(char * name_toadd)
     is_overwhelmed = false;
     hours = 1; //we're setting it to a generic 1 bc 0 is hard to print
 
-    prev = NULL;
     next = NULL; 
 }
 
@@ -308,9 +308,43 @@ int program::copyProg(program & prog_tocopy)
     return 1;
 }
 
-//just compares name
+//copmpares name, returns 0 on match
 int program::compareProgName(program & prog_tocp)
 {
+    if(strcmp(name, prog_tocp.name) == 0)
+    {
+        return 0;
+    }
+    return 1;
     
+    return 1;
+}
+
+//just togggles overwhelmed1
+int program::setOverWhelmed()
+{
+    if(is_overwhelmed == true)
+    {
+        is_overwhelmed = false;
+        return 0;
+    }
+    if(is_overwhelmed == false)
+    {
+        is_overwhelmed = true; 
+        return 0;
+    }
+    return 1; //something is wrong if this happens
+}
+
+int program::setHours(int hours_toset)
+{
+    hours = hours_toset;  
+
+    return 0;
+}
+
+int program::setDone()
+{
+    task::setDone();
     return 1;
 }

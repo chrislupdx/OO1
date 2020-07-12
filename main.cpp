@@ -4,7 +4,8 @@
 #include <fstream>
 #include <iostream>
 
-#include "task.h" //currently checking if our base class works
+//#include "task.h" //currently checking if our base class works
+#include "day.h"
 
 using namespace std;
 //pass whatever you're modding here by REF SO YOU ACTUALLY DO THINGS TO IT
@@ -12,7 +13,7 @@ using namespace std;
 int testTask();
 int testFeels();
 int testProgram();
-
+int testFeelList();
 int main()
 {
     //inits an empty week
@@ -21,6 +22,7 @@ int main()
     cout << " 1. create a task " << endl;
     cout << " 2. create a feel " << endl;
     cout << " 3. create a program " << endl;
+    cout << " 4. create a feellist " << endl;
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -66,7 +68,19 @@ int main()
             cin >> option;
             cin.ignore(100, '\n');
         }
+        if(option == 4)
+        {
+            testFeelList();
 
+            cout << "Prog #1 Choices: " << endl;
+            cout << " 1. create a task " << endl;
+            cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
+            cout << " 0 to exit " << endl;
+            cout << " input a choice: " << endl;
+            cin >> option;
+            cin.ignore(100,'\n');
+        }
         //cout << "Choices: " << endl;
         //cout << " 1. create a task " << endl;
         //cout << " 0 to exit " << endl;
@@ -176,7 +190,7 @@ int testFeels()
     cout << "increasing curr " << endl;
     ruh_roh.increaseCurr();
     ruh_roh.displayFeel();
-    
+
     cout << "setting done " << endl; 
     ruh_roh.setDone();
     ruh_roh.displayFeel();
@@ -238,6 +252,68 @@ int testProgram()
         cout << "no match " << endl;
     }
 
+    cout << "setting overwhelmed 1/2" << endl;
+    cpo.setOverWhelmed();
+    cpo.displayProgram();
+    cout << "setting overwhelmed 2/2" << endl;
+    cpo.setOverWhelmed();
+    cpo.displayProgram();
+
+    cout << "setting hrs" << endl;
+    int hrs;
+    cout << "input #: " << endl;
+    cin >> hrs;
+    cin.ignore(100, '\n');
+
+    cpo.setHours(hrs);
+    cpo.displayProgram();
+
+    cout << "set done " << endl;
+    cpo.setDone();
+    cpo.displayProgram();
+
+    return 1;
+}
+
+int testFeelList()
+{
+    bool done = false;
+    cout << "Feel list" << endl;
+
+    feelsList fList;    
+
+    do //adding feels to the list
+    {
+        cout << "creating a feel" << endl;
+        
+        cout << "gimme a name " << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+
+        feeling f1(name);
+        f1.displayFeel();
+        cout << endl;
+
+        cout << "inserting to list" << endl;
+        fList.addFeel(f1); //not sure if working
+        fList.displayFeels(); //not printing
+        
+
+        cout << "add another? y/n" << endl;
+
+        char finish;
+        cin >> finish;
+        cin.ignore(100, '\n');
+        if(finish == 'n')
+        {
+            done = true;
+        }
+    }
+    while(done == false);
+
+    //delete one feel
+    //then display the list
 
     return 1;
 }
