@@ -36,23 +36,22 @@ int feelsList::displayFeels(feeling *& head)
     return displayFeels(head->to_next()) + 1; //traverse
 }
 
-//recursive funciton
-int feelsList::addFeel(feeling new_feel, feeling *& head)
+int feelsList::addFeel(feeling & new_feel, feeling *& head)
 {
-    if(!head) //if we reach the end
-    {
-        head = new feeling;
-        head->copyFeeling(new_feel);
-        head->to_next() = NULL; 
-        return 0; //exit after adding
-    }
-    addFeel(new_feel, head->to_next()); //advance in the recursive call itself
-    //segs after 3
+    if(!head) return 0; //what if while instead of if
 
+    addFeel(new_feel, head->to_next()); //traverse/recurse
+
+    if(!head->to_next()) //if we are at the end
+    {
+        feeling * fTa = new feeling;
+        fTa->copyFeeling(new_feel);
+        head->to_next() = fTa;
+        fTa->to_next() = NULL;
+    }
     return 1;
 }
 
-//wrapper idk if its even necesary
 int feelsList::addFeel(feeling & new_feel)
 {
     if(!next) //if empty
@@ -65,8 +64,8 @@ int feelsList::addFeel(feeling & new_feel)
     else
     {
     return addFeel(new_feel, next); //recursive call handles traversal
-    } 
-    return 1; //ugh, only if necesasry
+    }
+    return 1;
 }
 
 int feelsList::removeAllFeels(feeling *& head)

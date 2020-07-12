@@ -15,7 +15,7 @@ class feelsList
     private:
         feeling * next; //linked list head
         int displayFeels(feeling *& head);
-        int addFeel(feeling new_feel, feeling *& head);
+        int addFeel(feeling & new_feel, feeling *& head);
         int removeAllFeels(feeling *& head); //used in the list destructor
 };
 

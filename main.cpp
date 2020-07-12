@@ -292,13 +292,13 @@ int testFeelList()
         cin.ignore(100, '\n');
 
         feeling f1(name);
+        cout << "created " << endl;
         f1.displayFeel();
         cout << endl;
 
         cout << "inserting to list" << endl;
         fList.addFeel(f1); //not sure if working
         fList.displayFeels(); //not printing
-        
 
         cout << "add another? y/n" << endl;
 
