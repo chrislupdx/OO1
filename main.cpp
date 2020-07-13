@@ -528,7 +528,7 @@ int testCryList()
 int testPList()
 {
     bool done = false;
-    //bool done2 = false;
+    bool done2 = false;
     day day1; //does this init fList?
     do
     {
@@ -561,16 +561,16 @@ int testPList()
     while(done == false);
 
     //the remove loop needs <3
-    //do
-    //{
-    //    cout << "remove a feel " << endl;
-    //    day1.displayCList();
-    //    cout << "name a feel to remove:" << endl;
-    //    char name[20];
-    //    cin >> name;
-    //    cin.ignore(100, '\n');
-    //    day1.removeaCrying(name); 
-    //}
-    //while(done2 == false);
+    do
+    {
+        cout << "remove a feel " << endl;
+        day1.displayPList();
+        cout << "name a feel to remove:" << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+        day1.removeaProg(name); 
+    }
+    while(done2 == false);
     return 1;
 }
