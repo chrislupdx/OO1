@@ -62,3 +62,19 @@ class program : public task
         int hours;
         program * next;
 };
+
+class cry : public task
+{
+    public:
+        cry();
+        ~cry();
+        cry(char * name_toadd); //param constructor
+        int displayCry();
+        int copyCry(cry & cry_tocopy);
+        int compareCryName(char * cry_tocp);
+        int compareCryName(cry & cry_tocp);
+        int setSighs(int sigh_toset); 
+    protected:
+        int sighs;
+        cry * next;
+};

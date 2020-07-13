@@ -268,7 +268,7 @@ program::program(char * name_toadd)
 {
     name = new char[strlen(name_toadd) + 1];
     strcpy(name, name_toadd);
-    
+
     is_overwhelmed = false;
     hours = 1; //we're setting it to a generic 1 bc 0 is hard to print
 
@@ -326,8 +326,7 @@ int program::compareProgName(program & prog_tocp)
     {
         return 0;
     }
-    return 1;
-    
+    //return 1;
     return 1;
 }
 
@@ -357,5 +356,82 @@ int program::setHours(int hours_toset)
 int program::setDone()
 {
     task::setDone();
+    return 1;
+}
+
+cry::cry()
+{
+    task();
+    sighs = 1; //sighs are junk rn
+}
+
+cry::~cry()
+{
+    sighs = 0; 
+}
+
+cry::cry(char * name_toadd)
+{
+    name = new char[strlen(name_toadd) + 1];
+    strcpy(name, name_toadd); 
+    sighs = 1;
+}
+
+int cry::displayCry()
+{
+    if(name)
+    {
+        std::cout << "Name: " << name << std::endl;
+    }
+    if(done == false)
+    {
+        std::cout << "Task Status: incomplete" << std::endl;
+    }
+    else
+    {
+        std::cout << "Task Status: did" << std::endl;
+    }
+    if(sighs)
+    {
+        std::cout << "Sighs: " << sighs << std::endl;
+    }
+    return 1;
+}
+
+int cry::copyCry(cry & cry_tocopy)
+{
+    name = new char[strlen(cry_tocopy.name) + 1];
+    strcpy(name, cry_tocopy.name);
+
+    done = new bool;
+    done = cry_tocopy.done; //can we just copy bool
+
+    sighs = cry_tocopy.sighs;
+
+    return 1;
+}
+
+int cry::compareCryName(char * cryname)
+{
+    if(strcmp(name, cryname) == 0)
+    {
+        return 0;
+    }
+    return 1;
+
+}
+
+int cry::compareCryName(cry & cry_tocp)
+{
+    if(strcmp(name, cry_tocp.name) == 0)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+int cry::setSighs(int sigh_toset)
+{
+    sighs = sigh_toset;
     return 1;
 }

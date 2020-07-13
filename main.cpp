@@ -12,6 +12,7 @@ using namespace std;
 
 int testTask();
 int testFeels();
+int testCry();
 int testProgram();
 int testFeelList();
 int testDayFlist();
@@ -26,6 +27,7 @@ int main()
     cout << " 3. create a program " << endl;
     cout << " 4. create a feellist " << endl;
     cout << " 5. feellist in day " << endl;
+    cout << " 6. create a cry " << endl;
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -84,7 +86,6 @@ int main()
             cin >> option;
             cin.ignore(100,'\n');
         }
-
         if(option == 5)
         {
             testDayFlist();
@@ -98,14 +99,20 @@ int main()
             cin >> option;
             cin.ignore(100,'\n');
         }
-
-        //cout << "Choices: " << endl;
-        //cout << " 1. create a task " << endl;
-        //cout << " 0 to exit " << endl;
+        if(option == 6)
+        {
+            testCry();
+            cout << "Prog #1 Choices: " << endl;
+            cout << " 1. create a task " << endl;
+            cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
+            cout << " 0 to exit " << endl;
+            cout << " input a choice: " << endl;
+            cin >> option;
+            cin.ignore(100,'\n');
+        }
     }
     while(option != 0);
-    //create a a nice do/while loop
-
     return 0;
 }
 
@@ -239,8 +246,6 @@ int testProgram()
 {
     cout << "testing program" << endl;
     cout << "creating a program " << endl;
-
-
     cout << "Name your programming assingment: " << endl;
     char tN[20]; //taskName
     cin >> tN;
@@ -370,12 +375,12 @@ int testDayFlist()
     bool done2 = false;
     //bool done2 = false;
     day day1; //does this init fList?
-    
-    
+
+
     do
     {
         cout << "make a feel" << endl;
-        
+
         cout << "gimme a name " << endl;
         char name[20];
         cin >> name;
@@ -387,7 +392,7 @@ int testDayFlist()
         cout << endl;
 
         cout << "inserting to list" << endl;
-        
+
         //ok this interaction is segfaulting 
         day1.addFeeling(f1); 
         day1.displayFList();
@@ -433,11 +438,54 @@ int testDayFlist()
     while(done2 == false);
 
 
-//create a paramererized feeling
-//add that feel
-//display feels
+    //create a paramererized feeling
+    //add that feel
+    //display feels
 
-//remove feels
+    //remove feels
 
-return 1;
+    return 1;
+}
+
+int testCry()
+{
+    cout << "testing cry" << endl;
+    cout << "creating a cry" << endl;
+
+    cout << "Name your cry: " << endl;
+    char cN[20]; //cryName
+    cin >> cN;
+    cin.ignore(100, '\n');
+    cry whelp(cN); //still non-dynamic...
+
+    //DISPLAY
+    whelp.displayCry();
+    cout << endl;
+
+    cout << "OG: " << endl;
+    whelp.displayCry();
+    cout << endl;
+
+    cout <<"New: " << endl;
+    cry another; 
+    another.copyCry(whelp); 
+    another.displayCry();
+    cout << endl;
+
+    cout << "Comparing cry name: " << endl;
+    if(another.compareCryName(whelp) == 0)
+    {
+        cout << "match" << endl;
+    }
+    else
+    {
+        cout << "no match " << endl;
+    }
+
+    //NEEDS MODIFICATION
+    //cout << "set done " << endl;
+    //cpo.setDone();
+    //cpo.displayProgram();
+
+    return 1;
 }
