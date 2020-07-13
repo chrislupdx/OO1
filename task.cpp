@@ -326,7 +326,15 @@ int program::compareProgName(program & prog_tocp)
     {
         return 0;
     }
-    //return 1;
+    return 1;
+}
+
+int program::compareProgName(char * progName)
+{
+    if(strcmp(name, progName) == 0)
+    {
+        return 0;
+    }
     return 1;
 }
 
@@ -358,6 +366,8 @@ int program::setDone()
     task::setDone();
     return 1;
 }
+
+program *& program::to_next() { return next; }
 
 cry::cry()
 {

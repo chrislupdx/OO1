@@ -17,6 +17,7 @@ int testProgram();
 int testFeelList();
 int testDayFlist();
 int testCryList();
+int testPList();
 
 int main()
 {
@@ -30,6 +31,7 @@ int main()
     cout << " 5. feellist in day " << endl;
     cout << " 6. create a cry " << endl;
     cout << " 7. crylist in day" << endl; 
+    cout << " 8. pllist in day" << endl; 
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -116,6 +118,10 @@ int main()
         if(option == 7)
         {
             testCryList();
+        }
+        if(option == 8)
+        {
+            testPList();
         }
     }
     while(option != 0);
@@ -516,5 +522,55 @@ int testCryList()
         day1.removeaCrying(name); 
     }
     while(done2 == false);
+    return 1;
+}
+
+int testPList()
+{
+    bool done = false;
+    //bool done2 = false;
+    day day1; //does this init fList?
+    do
+    {
+        cout << "make a prog" << endl;
+        cout << "gimme a name " << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+
+        program p1(name);
+        cout << "created " << endl;
+        p1.displayProgram();
+        cout << endl;
+
+        cout << "inserting to list" << endl;
+       
+        day1.addaProgram(p1); //segfaulting
+        day1.displayPList();
+
+        cout << "add another? y/n" << endl;
+
+        char finish;
+        cin >> finish;
+        cin.ignore(100, '\n');
+        if(finish == 'n')
+        {
+            done = true;
+        }
+    }
+    while(done == false);
+
+    //the remove loop needs <3
+    //do
+    //{
+    //    cout << "remove a feel " << endl;
+    //    day1.displayCList();
+    //    cout << "name a feel to remove:" << endl;
+    //    char name[20];
+    //    cin >> name;
+    //    cin.ignore(100, '\n');
+    //    day1.removeaCrying(name); 
+    //}
+    //while(done2 == false);
     return 1;
 }

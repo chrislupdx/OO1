@@ -36,6 +36,7 @@ class feeling: public task
         int compareFeelName(feeling & feeling_tocp);
         int compareFeelName(char * feelname);
         feeling * & to_next(); //a getter that returns the next pointer
+
     protected:
         int max;
         int min;
@@ -53,10 +54,12 @@ class program : public task
         int displayProgram(); //we could virtualize it 
         int copyProg(program & prog_tocopy);
         int compareProgName(program & prog_tocp);
+        int compareProgName(char * progName);
         int setHours(int hours_toset);
         int setOverWhelmed();  //just toggles it
         int setDone(); //could be virtual i guess
         int doHomework(); //++feels.curr, ++hrs
+        program * & to_next(); //a getter that returns the next pointer
     protected:
         bool is_overwhelmed;
         int hours;

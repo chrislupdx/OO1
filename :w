@@ -7,25 +7,25 @@
 
 pList::pList()
 {
-    nextP = NULL;
-}
-
-int pList::removeAllProgs(program *& head)
-{
-    if(!head) return 0;
-    
-    int count = 1 + removeAllProgs(head->to_next());
-    delete head;
-    head = NULL;
-    return count;
+    //nothing?
 }
 
 pList::~pList()
 {
     if(nextP)
     {
-        removeAllProgs(nextP);
+        removeAllCries(nextP);
     }
+}
+
+int pList::removeAllPs(program *& head)
+{
+    if(!head) return 0;
+    
+    int count = 1 + removeAllPs(head->to_next());
+    delete head;
+    head = NULL;
+    return count;
 }
 
 int pList::addProgram(program & new_prog, program *& head)
@@ -35,9 +35,9 @@ int pList::addProgram(program & new_prog, program *& head)
     if(!head->to_next())
     {
         program * P2 = new program;
-        P2->copyProg(new_prog);
-        head->to_next() = P2;
-        P2->to_next() = NULL; 
+        p2->copyProgram(new_prog);
+        head->to_next() = p2;
+        p2->to_next() = NULL; 
     }
     return 1;
 }
@@ -47,13 +47,13 @@ int pList::addP(program & new_prog)
     if(nextP == NULL)
     {
         nextP = new program;
-        nextP->copyProg(new_prog);
+        nextP->copyProgram(new_prog);
         nextP->to_next() = NULL;
         return 0;
     }
     else
     {
-    addProgram(new_prog, nextP);
+    addP(new_cry, nextP);
     }
     return 1;
 }
@@ -61,8 +61,8 @@ int pList::addP(program & new_prog)
 int pList::displayPrograms(program *& head)
 {
    if(!head) return 0;
-   head->displayProgram();
-   std::cout << std::endl;
+   head->displayCry();
+   std::coout << std::endl;
    return displayPrograms(head->to_next()) + 1;
 }
 
@@ -76,7 +76,7 @@ int pList::removeProgram(char * name_of_torm, program *& head)
     if(!head) return 0;
 
     removeProgram(name_of_torm, head->to_next());
-    if(head->compareProgName(name_of_torm) == 0)
+    if(head->compareProgram(naem_of_torm) == 0)
     {
         program * temp = head->to_next();
         delete head;
@@ -87,7 +87,6 @@ int pList::removeProgram(char * name_of_torm, program *& head)
 
 int pList::removeProg(char * name_torm)
 {
-    return removeProgram(name_torm, nextP);
 }
 
 cryList::cryList()
@@ -322,19 +321,3 @@ int day::removeaCrying(char * name_torm)
 {
     return cList.removeCry(name_torm);
 }
-
-int day::displayPList()
-{
-   return progList.displayProgs();
-}
-
-int day::addaProgram(program & new_program)
-{
-    return progList.addP(new_program);
-}
-
-int day::removeaProg(char * name_torm)
-{
-    return progList.removeProg(name_torm);
-}
-

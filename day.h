@@ -22,6 +22,22 @@ class feelsList
         int removeAllFeels(feeling *& head); //used in the list destructor
 };
 
+class pList
+{
+    public:
+        pList();
+        ~pList();
+        int addP(program & new_prog);
+        int displayProgs();
+        int removeProg(char * name_torm);
+    private:
+        program * nextP;
+        int removeProgram(char * name_of_torm, program *& head);
+        int displayPrograms(program *& program);
+        int addProgram(program & new_prog, program *& head);
+        int removeAllProgs(program *& program);
+};
+
 class cryList
 {
     public:
@@ -51,12 +67,16 @@ class day
         int addaCrying(cry & new_cry);
         int removeaCrying(char * name_torm);
 
+        int displayPList();
+        int addaProgram(program & new_program);
+        int removeaProg(char * name_torm);
+
     protected:
         day * prevDay;
         day * nextDay;
         //char * dayOfWeek; //name 
         feelsList fList;  //DOES THE DEFAULT CONSTRUCTOR GO OFFF WITHOUT EXTRA LOVE FROM THE DEFAULT DESTRUCTOR DAY();
-        //program * progList; //LLL 
         cryList cList;
+        pList progList;
 };
 
