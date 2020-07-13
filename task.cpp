@@ -195,11 +195,22 @@ int feeling::copyFeeling(feeling & feeling_toCopy)
     return 1;
 }
 
+
 //returns 0 if currs match
 int feeling::compareFeelCurr(feeling & feeling_toCompare)
 {
     //not sure the best >= in c++
     if(curr == feeling_toCompare.curr)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+//returns 0 if match
+int feeling::compareFeelName(char * feelname)
+{
+    if(strcmp(name, feelname) == 0)
     {
         return 0;
     }

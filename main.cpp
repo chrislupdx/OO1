@@ -14,6 +14,8 @@ int testTask();
 int testFeels();
 int testProgram();
 int testFeelList();
+int testDayFlist();
+
 int main()
 {
     //inits an empty week
@@ -23,6 +25,7 @@ int main()
     cout << " 2. create a feel " << endl;
     cout << " 3. create a program " << endl;
     cout << " 4. create a feellist " << endl;
+    cout << " 5. feellist in day " << endl;
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -81,6 +84,21 @@ int main()
             cin >> option;
             cin.ignore(100,'\n');
         }
+
+        if(option == 5)
+        {
+            testDayFlist();
+
+            cout << "Prog #1 Choices: " << endl;
+            cout << " 1. create a task " << endl;
+            cout << " 2. create a feel " << endl;
+            cout << " 3. create a program " << endl;
+            cout << " 0 to exit " << endl;
+            cout << " input a choice: " << endl;
+            cin >> option;
+            cin.ignore(100,'\n');
+        }
+
         //cout << "Choices: " << endl;
         //cout << " 1. create a task " << endl;
         //cout << " 0 to exit " << endl;
@@ -278,6 +296,7 @@ int testProgram()
 int testFeelList()
 {
     bool done = false;
+    bool done2 = false;
     cout << "Feel list" << endl;
 
     feelsList fList;    
@@ -285,7 +304,7 @@ int testFeelList()
     do //adding feels to the list
     {
         cout << "creating a feel" << endl;
-        
+
         cout << "gimme a name " << endl;
         char name[20];
         cin >> name;
@@ -297,7 +316,7 @@ int testFeelList()
         cout << endl;
 
         cout << "inserting to list" << endl;
-        fList.addFeel(f1); //not sure if working
+        fList.addFeelWrap(f1); //not sure if working
         fList.displayFeels(); //not printing
 
         cout << "add another? y/n" << endl;
@@ -312,8 +331,83 @@ int testFeelList()
     }
     while(done == false);
 
+    do
+    {
+        cout << "remove a feel " << endl;
+        fList.displayFeels();
+        cout << "name a feel to remove:" << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+
+        fList.removeFeel(name); 
+        cout << "deleting: " << endl;
+
+        cout << "current list: " << endl;
+        fList.displayFeels();
+
+
+        cout << "delete another? y/n" << endl; 
+        char finish; 
+        cin >> finish; 
+        cin.ignore(100, '\n');
+        if(finish == 'n')
+        {
+            done2 = true;
+        }
+    }
+    while(done2 == false);
+
     //delete one feel
     //then display the list
 
     return 1;
+}
+
+int testDayFlist()
+{
+    bool done = false;
+    //bool done2 = false;
+    day day1; //does this init fList?
+    
+    do
+    {
+        cout << "make a feel" << endl;
+        
+        cout << "gimme a name " << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+
+        feeling f1(name);
+        cout << "created " << endl;
+        f1.displayFeel();
+        cout << endl;
+
+        cout << "inserting to list" << endl;
+        
+        //ok this interaction is segfaulting 
+        day1.addFeeling(f1); 
+        //day1.displayFList();
+
+        cout << "add another? y/n" << endl;
+
+        char finish;
+        cin >> finish;
+        cin.ignore(100, '\n');
+        if(finish == 'n')
+        {
+            done = true;
+        }
+    }
+    while(done == false);
+
+
+//create a paramererized feeling
+//add that feel
+//display feels
+
+//remove feels
+
+return 1;
 }

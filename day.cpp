@@ -3,17 +3,7 @@
 
 #include "day.h"
 #include <iostream>
-
-//default day constructor
-day::day()
-{
-} 
-day::~day()
-{
-    dayOfWeek = NULL;
-    //call proglist destructor
-}
-
+#include <cstring>
 //default feelsList constructor
 feelsList::feelsList()
 {
@@ -36,13 +26,36 @@ int feelsList::displayFeels(feeling *& head)
     return displayFeels(head->to_next()) + 1; //traverse
 }
 
+//traverse and find
+int feelsList::removeFeel(char * name_of_torm, feeling *& head)
+{
+    if(!head) return 0;
+
+    removeFeel(name_of_torm, head->to_next());
+    //if match 
+    if(head->compareFeelName(name_of_torm) == 0)
+    {
+        feeling * temp = head->to_next();
+        delete head;
+        head = temp;
+    }
+
+    return 1;
+}
+
+int feelsList::removeFeel(char * name_of_torm)
+{
+    return removeFeel(name_of_torm, next);
+}
+
+//recursive call
 int feelsList::addFeel(feeling & new_feel, feeling *& head)
 {
-    if(!head) return 0; //what if while instead of if
+    if(!head) return 0;
 
     addFeel(new_feel, head->to_next()); //traverse/recurse
 
-    if(!head->to_next()) //if we are at the end
+    if(!head->to_next()) //if@EOL
     {
         feeling * fTa = new feeling;
         fTa->copyFeeling(new_feel);
@@ -52,9 +65,10 @@ int feelsList::addFeel(feeling & new_feel, feeling *& head)
     return 1;
 }
 
-int feelsList::addFeel(feeling & new_feel)
+int feelsList::addFeelWrap(feeling & new_feel)
 {
-    if(!next) //if empty
+    //next != null @ the day layer...
+    if(next == NULL) //if empty
     {
         next = new feeling;
         next->copyFeeling(new_feel);
@@ -63,7 +77,7 @@ int feelsList::addFeel(feeling & new_feel)
     }
     else
     {
-    return addFeel(new_feel, next); //recursive call handles traversal
+    addFeel(new_feel, next); //recursive call handles traversal
     }
     return 1;
 }
@@ -88,3 +102,37 @@ feelsList::~feelsList()
         removeAllFeels(next);
     }
 }
+
+//default day constructor
+day::day()
+{
+    prevDay = NULL;
+    nextDay = NULL;
+    
+    //we need to allocate a new fList;
+} 
+
+day::~day()
+{
+    //dayOfWeek = NULL;
+    //call proglist destructor
+}
+
+//calls feelList's display
+int day::displayFList()
+{
+    return fList.displayFeels();
+}
+
+int day::removeFeeling(char * name_torm)
+{
+    return fList.removeFeel(name_torm);
+}
+
+int day::addFeeling(feeling & new_feel)
+{
+    //does this function need to pass anything else down
+    fList.addFeelWrap(new_feel);
+    return 1;
+}
+

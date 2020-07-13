@@ -1,5 +1,4 @@
-//This is the implementation of the task.h file
-//tasks are the simplest unit in the class Coping.  
+//This is the implementation of the task.h file //tasks are the simplest unit in the class Coping.  
 //Task.h
 //Chris Lu
 
@@ -32,9 +31,10 @@ class feeling: public task
         int setDone(); //oh hey could we virtualist this
         int displayFeel(); //prints name, task status, curr/max/min
         int copyFeeling(feeling & feeling_toCopy); //does NOT take pointers, does not copy prev/n
-        int compareFeelCurr(feeling & feeling_toCompare); 
+        int compareFeelCurr(feeling & feeling_toCompare);  //do one that takes strings
         int increaseCurr();
         int compareFeelName(feeling & feeling_tocp);
+        int compareFeelName(char * feelname);
         feeling * & to_next(); //a getter that returns the next pointer
     protected:
         int max;
