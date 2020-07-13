@@ -74,6 +74,7 @@ class cry : public task
         int compareCryName(char * cry_tocp);
         int compareCryName(cry & cry_tocp);
         int setSighs(int sigh_toset); 
+        cry * & to_next(); //a getter that returns the next pointer
     protected:
         int sighs;
         cry * next;

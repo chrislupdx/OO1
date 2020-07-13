@@ -4,7 +4,115 @@
 #include "day.h"
 #include <iostream>
 #include <cstring>
-//default feelsList constructor
+
+cryList::cryList()
+{
+    nextC = NULL;
+}
+
+int cryList::removeAllCries(cry *& head)
+{
+    if(!head) return 0;
+
+    int count = 1 + removeAllCries(head->to_next()); //traversal occurs here
+    delete head;
+    head = NULL;
+    return count;
+}
+
+cryList::~cryList()
+{
+    if(nextC)
+    {
+        removeAllCries(nextC);
+    }
+}
+
+int cryList::addCry(cry & new_cry, cry *& head)
+{
+    if(!head) return 0;
+    addCry(new_cry, head->to_next());
+    if(!head->to_next())
+    {
+        cry * cTa = new cry;
+        cTa->copyCry(new_cry);
+        head->to_next() = cTa;
+        cTa->to_next() = NULL; 
+    }
+    return 1;
+}
+
+int cryList::addaCrying(cry & new_cry)
+{
+    if(nextC == NULL)
+    {
+        nextC = new cry;
+        nextC->copyCry(new_cry);
+        nextC->to_next() = NULL;
+        return 0;
+    }
+    else
+    {
+    addCry(new_cry, nextC);
+    }
+    return 1;
+}
+
+int cryList::removeCry(char * name_of_torm, cry *& head)
+{
+    if(!head) return 0;
+    removeCry(name_of_torm, head->to_next());
+    if(head->compareCryName(name_of_torm) == 0)
+    {
+        cry * temp = head->to_next();
+        delete head;
+        head = temp;
+    }
+
+    return 1;
+}
+
+int cryList::removeCry(char * name_of_torm)
+{
+    return removeCry(name_of_torm, nextC);
+}
+
+int cryList::displayCries()
+{
+    return displayCries(nextC);
+}
+
+int cryList::displayCries(cry *& head)
+{
+    if(!head) return 0;
+    
+    head->displayCry();
+    std::cout << std::endl;
+    return displayCries(head->to_next()) + 1;
+}
+
+
+int feelsList::removeAllFeels(feeling *& head)
+{
+    if(!head) return 0;
+
+    int count = 1 + removeAllFeels(head->to_next()); //traversal occurs here
+
+    delete head;
+    head = NULL;
+
+    return count;
+}
+
+//default feelsList destructor
+feelsList::~feelsList()
+{
+    if(next)
+    {
+        removeAllFeels(next);
+    }
+}
+
 feelsList::feelsList()
 {
     next = NULL; 
@@ -82,27 +190,6 @@ int feelsList::addFeelWrap(feeling & new_feel)
     return 1;
 }
 
-int feelsList::removeAllFeels(feeling *& head)
-{
-    if(!head) return 0;
-
-    int count = 1 + removeAllFeels(head->to_next()); //traversal occurs here
-
-    delete head;
-    head = NULL;
-
-    return count;
-}
-
-//default feelsList destructor
-feelsList::~feelsList()
-{
-    if(next)
-    {
-        removeAllFeels(next);
-    }
-}
-
 //default day constructor
 day::day()
 {
@@ -136,3 +223,17 @@ int day::addFeeling(feeling & new_feel)
     return 1;
 }
 
+int day::displayCList()
+{
+    return cList.displayCries();
+}
+
+int day::addaCrying(cry & new_cry)
+{
+    return cList.addaCrying(new_cry);
+}
+
+int day::removeaCrying(char * name_torm)
+{
+    return cList.removeCry(name_torm);
+}

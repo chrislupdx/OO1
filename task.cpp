@@ -435,3 +435,5 @@ int cry::setSighs(int sigh_toset)
     sighs = sigh_toset;
     return 1;
 }
+
+cry *& cry::to_next() { return next;} //this getter returns the next node;
