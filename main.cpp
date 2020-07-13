@@ -388,7 +388,7 @@ int testDayFlist()
         
         //ok this interaction is segfaulting 
         day1.addFeeling(f1); 
-        //day1.displayFList();
+        day1.displayFList();
 
         cout << "add another? y/n" << endl;
 
