@@ -367,8 +367,10 @@ int testFeelList()
 int testDayFlist()
 {
     bool done = false;
+    bool done2 = false;
     //bool done2 = false;
     day day1; //does this init fList?
+    
     
     do
     {
@@ -401,6 +403,34 @@ int testDayFlist()
         }
     }
     while(done == false);
+
+    do
+    {
+        cout << "remove a feel " << endl;
+        day1.displayFList();
+        cout << "name a feel to remove:" << endl;
+        char name[20];
+        cin >> name;
+        cin.ignore(100, '\n');
+
+        day1.removeFeeling(name); 
+
+        //cout << "deleting: " << endl;
+
+        //cout << "current list: " << endl;
+        //fList.displayFeels();
+
+
+        //cout << "delete another? y/n" << endl; 
+        //char finish; 
+        //cin >> finish; 
+        //cin.ignore(100, '\n');
+        //if(finish == 'n')
+        //{
+        //    done2 = true;
+        //}
+    }
+    while(done2 == false);
 
 
 //create a paramererized feeling
