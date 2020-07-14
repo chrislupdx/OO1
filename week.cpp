@@ -2,7 +2,8 @@
 #include "week.h"
 week::week()
 {
-    head = NULL; 
+    head = NULL;
+
 }
 
 
@@ -26,24 +27,16 @@ int week::addDay(char * name, day *& head)
 }
 
 //wrapper
-int week::addDay(char * name)
+int week::addDay(char * name, int i) //i == array index we're adding x to?
 {
-    //if completely empty, create the new list
-    if(!head)
-    {
-        head = new day(name); //create a new day
-        head->to_nextDay() = NULL; 
-    }
-
-    return 1;
+    return head[i].addDay(name);
 }
-
 
 //recursively iterates through week, printing each day
 int week::displayWeek(day *& head)
 {
     if(!head) return 0;
-    //head->displayDay();
+    head->displayDay();
     std::cout << std::endl;
 
     return displayWeek(head->to_nextDay()) + 1;
@@ -59,5 +52,12 @@ int week::displayWeek()
 int week::removeAllDays()
 {
     //im pretty sure we have one of these lying around somehwere 
+    return 1;
+}
+
+//wrapper function that calls
+int week::createProg(char * name)
+{
+    
     return 1;
 }

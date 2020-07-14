@@ -345,6 +345,15 @@ int day::removeaProg(char * name_torm)
 int day::displayDay()
 {
     std::cout << dayOfWeek << std::endl;
+    
+    std::cout << "Programming tasks " << std::endl;
+    displayPList(); 
+
+    std::cout << "Feelings tasks " << std::endl;
+    displayFList();
+
+    std::cout << "Crying tasks " << std::endl;
+    displayFList();
 
     return 1;
 }
