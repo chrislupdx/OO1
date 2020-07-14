@@ -60,6 +60,9 @@ class day
         day(); //constructor for the class itself
         ~day();
         day(char * name);
+
+        int displayDay(); //calls all 3 disaply functions
+        
         //day needs a paramterized constructor to call
         int displayFList();
         int addFeeling(feeling & new_feel); //changed to taking refs4consistency

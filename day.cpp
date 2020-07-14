@@ -342,5 +342,12 @@ int day::removeaProg(char * name_torm)
     return progList.removeProg(name_torm);
 }
 
+int day::displayDay()
+{
+    std::cout << dayOfWeek << std::endl;
+
+    return 1;
+}
+
 day *& day::to_nextDay() { return nextDay; }
 day *& day::to_prevDay() { return prevDay; }

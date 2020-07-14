@@ -1,5 +1,6 @@
 //this is the implentation of the week class, it manages the DLL of days
 #include "day.h"
+#include <iostream>
 
 class week
 {
@@ -13,7 +14,6 @@ class week
         //delete days(remove from week)
         
         //retrieveDay
-        
 
         //createcry
         //createprog
@@ -26,7 +26,9 @@ class week
         
 
     protected:
+        int displayWeek(day *& head);
         day * head; //a doubly linked list of days
+        int addDay(char * name, day *& head);
 
         int removeAllDays();
 };
