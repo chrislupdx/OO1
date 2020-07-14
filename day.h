@@ -47,11 +47,11 @@ class cryList
         int displayCries();
         int removeCry(char * name_torm);
     private:
-            cry * nextC;
-            int removeCry(char * name_of_torm, cry *& head); //recur
-            int displayCries(cry *& cry);
-            int addCry(cry & new_cry, cry *& head);
-            int removeAllCries(cry *& cry);
+        cry * nextC;
+        int removeCry(char * name_of_torm, cry *& head); //recur
+        int displayCries(cry *& cry);
+        int addCry(cry & new_cry, cry *& head);
+        int removeAllCries(cry *& cry);
 };
 
 class day
@@ -60,22 +60,18 @@ class day
         day(); //constructor for the class itself
         ~day();
         day(char * name);
-
         int displayDay(); //calls all 3 disaply functions
-        
-        //day needs a paramterized constructor to call
+        int addNode(char * dayName, day *& head); 
+        int addNode(char * dayName);
         int displayFList();
         int addFeeling(feeling & new_feel); //changed to taking refs4consistency
         int removeFeeling(char * name_torm);
-       
         int displayCList();
         int addaCrying(cry & new_cry);
         int removeaCrying(char * name_torm);
-
         int displayPList();
         int addaProgram(program & new_program);
         int removeaProg(char * name_torm);
-    
         day * & to_nextDay(); //getters
         day * & to_prevDay(); //getters
 
@@ -84,7 +80,7 @@ class day
         day * nextDay;
 
         char * dayOfWeek; //name 
-        feelsList fList;  //DOES THE DEFAULT CONSTRUCTOR GO OFFF WITHOUT EXTRA LOVE FROM THE DEFAULT DESTRUCTOR DAY();
+        feelsList fList;
         cryList cList;
         pList progList;
 };

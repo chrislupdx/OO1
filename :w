@@ -5,21 +5,21 @@ week::week()
     head = NULL;
 }
 
-int init(day *& head, int i)
-{
-    if(!head) return 0;
-    head[i] = NULL;
-    init(head->to_nextDay(), i++);
-
-    return 1;
-}
-
 week::week(int size)
 {
     arraySize = size;
     head = new day * [size]; //does that actually do it?
     int i = 0;
-    init(*head, i);
+    init(head, i);
+}
+
+int init(day *& head, int i)
+{
+    if(!head) return 0;
+    head[i] = NULL;
+    init(head->to_next(), i++);
+
+    return 1;
 }
 
 week::~week()
@@ -31,7 +31,7 @@ week::~week()
     }
 }
 
-int week::deleteWrapper(int i)
+int week:deleteWrapper(int i)
 {
     //if(i <= arraySize)
     //{
@@ -44,21 +44,21 @@ int week::deleteWrapper(int i)
     {
     delete [] head;
     }
-    deleteDll(head[i]);
+    deleteAll(head[i]);
     return deleteWrapper(++i);
 }
 
 //deleting a DLL
-int week::deleteDll(day *& head)
+int week::deleteAll(day & head)
 {
-    if(head == NULL) return 0;
+    if(!head) return 0;
 
-    deleteDll(head->to_nextDay());
-    if(!head->to_nextDay())
+    deleteAll(head.to_next());
+    if(!head.to_next())
     {
         delete head;
-        head = NULL;
     }
+    delete [] head;
     return 1;
 }
 

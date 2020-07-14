@@ -5,19 +5,19 @@
 class week
 {
     public:
-        week(); //could we init 7 days?
+        week();
+        week(int size); 
         ~week();
 
-        //int removeDay(char * name); //find and remove
-        //int retrieveDay(char * day);
-
         int addDay(char * name, int num); //hard copy a day class add to the dll, num == index of the array
-        
         int displayWeek(); //prints the DLL
         int createProg(char * name);
-
+        int deleteWrapper(int i);
+         
+        //int retrieveDay(char * day);
+        //int removeDay(char * name); //find and remove
         //delete days(remove from week)
-        //retrieveDay
+        
         //createcry
         //createprog
         //createfeel
@@ -26,12 +26,12 @@ class week
         //removefeel
         //removeall
     protected:
+        int deleteDll(day *& head);
         int displayWeek(day *& head);
         int arraySize;  //force human input
-        int hI;
-        day ** head; //a doubly linked list of days
+        int hI;         //day
+        day ** head; //3 lists of days
         //head[hI].functionName();
-
         int addDay(char * name, day *& head);
         int removeAllDays();
 };

@@ -582,69 +582,63 @@ int testPList()
 
 int doweek()
 {
-    bool doProg = false;
-    bool doWeek = false;
-    bool doDay = false;
+    //bool doProg = false;
+    //bool doWeek = false;
+    //bool doDay = false;
     bool doTask = false;
     week newWeek;
 
     cout << "week!" << endl;
 
-        do //This loop stuffs tasks into newDay
+    do //This loop stuffs tasks into newDay
+    {
+        bool done = false;
+        day newDay;
+        cout << "name the day you're making" << endl;
+        char i[20];
+        cin >> i;
+        cin.ignore(100, '\n');
+
+        do //this loop creates tasks and 
         {
-            day = newDay;
-            do //this loop makes programs + puts them in newDay
+            cout << "what type of task do you want to make 0 (program, 1 (cry), 2 (feel)" << endl;
+            int option;
+            cin >> option;
+            cin.ignore(); 
+            newWeek.addDay(i, option);
+
+            //week[i].addaProgram(int arrayIndexForWeek); //within this one: if(int == N) day[N]
+            //newWeek.addaProgram(p1); //segfaulting
+            //displayPList();
+
+            //for making porogs
+            //cout << "make a program" << endl;
+            //cout << "gimme a name " << endl;
+            //char name[20];
+            //cin >> name;
+            //cin.ignore(100, '\n');
+            //program p1(name);
+            //cout << "created " << endl;
+            //p1.displayProgram();
+            //cout << endl;
+            
+            cout << "add another? y/n" << endl;
+            char finish;
+            cin >> finish;
+            cin.ignore(100, '\n');
+            if(finish == 'n')
             {
-                cout << "make a program" << endl;
-                cout << "gimme a name " << endl;
-                char name[20];
-                cin >> name;
-                cin.ignore(100, '\n');
-
-                program p1(name);
-                cout << "created " << endl;
-                p1.displayProgram();
-                cout << endl;
-
-                cout << "inserting to list" << endl;
-             
-                cout << "name the day you're making" << endl;
-                char  i[20];
-                cin >> i;
-                cin.ignore(100, '\n');
-                
-
-                cout << "what type of task do you want to make 0 (program, 1 (cry), 2 (feel)" << endl;
-                int option;
-                cin >> option;
-                cin.ignore(); 
-
-                newWeek.addDay(i, option);
-                
-
-                //week[i].addaProgram(int arrayIndexForWeek); //within this one: if(int == N) day[N]
-                head[i].addaProgram(p1); //segfaulting
-                    
-                displayPList();
-
-                cout << "add another? y/n" << endl;
-
-                char finish;
-                cin >> finish;
-                cin.ignore(100, '\n');
-                if(finish == 'n')
-                {
-                    done = true;
-                }
+                done = true;
             }
-            while(done == false);
-
-            //feels
-            //programs
-            //cries
         }
-        while(doTask == false);
-            //toop to create days
-            //loop to create the week
-            return 1;
+        while(done == false);
+
+        //feels
+        //programs
+        //cries
+    }
+    while(doTask == false);
+    //toop to create days
+    //loop to create the week
+    return 1;
 }
