@@ -280,14 +280,18 @@ day::day()
 {
     prevDay = NULL;
     nextDay = NULL;
-    
-    //we need to allocate a new fList;
+    //no allocation for the c/f/p lists?    
 } 
 
 day::~day()
 {
     //dayOfWeek = NULL;
     //call proglist destructor
+}
+
+day::day(char * name)
+{
+    dayOfWeek = name;
 }
 
 //calls feelList's display
@@ -338,3 +342,5 @@ int day::removeaProg(char * name_torm)
     return progList.removeProg(name_torm);
 }
 
+day *& day::to_nextDay() { return nextDay; }
+day *& day::to_prevDay() { return prevDay; }

@@ -59,6 +59,8 @@ class day
     public:
         day(); //constructor for the class itself
         ~day();
+        day(char * name);
+        //day needs a paramterized constructor to call
         int displayFList();
         int addFeeling(feeling & new_feel); //changed to taking refs4consistency
         int removeFeeling(char * name_torm);
@@ -70,11 +72,15 @@ class day
         int displayPList();
         int addaProgram(program & new_program);
         int removeaProg(char * name_torm);
+    
+        day * & to_nextDay(); //getters
+        day * & to_prevDay(); //getters
 
     protected:
         day * prevDay;
         day * nextDay;
-        //char * dayOfWeek; //name 
+
+        char * dayOfWeek; //name 
         feelsList fList;  //DOES THE DEFAULT CONSTRUCTOR GO OFFF WITHOUT EXTRA LOVE FROM THE DEFAULT DESTRUCTOR DAY();
         cryList cList;
         pList progList;

@@ -4,12 +4,10 @@
 #include <fstream>
 #include <iostream>
 
-//#include "task.h" //currently checking if our base class works
-#include "day.h"
-
+#include "week.h"
 using namespace std;
 //pass whatever you're modding here by REF SO YOU ACTUALLY DO THINGS TO IT
-
+int doweek();
 int testTask();
 int testFeels();
 int testCry();
@@ -32,6 +30,7 @@ int main()
     cout << " 6. create a cry " << endl;
     cout << " 7. crylist in day" << endl; 
     cout << " 8. pllist in day" << endl; 
+    cout << " 9. week " << endl;
     cout << " 0 to exit " << endl;
     cout << "input a choice :" << endl;
     int option;
@@ -122,6 +121,13 @@ int main()
         if(option == 8)
         {
             testPList();
+        }
+        if(option == 9)
+        {
+            doweek();
+            cout << " input a choice: (0 to exit) " << endl;
+            cin >> option;
+            cin.ignore(100,'\n');
         }
     }
     while(option != 0);
@@ -572,5 +578,31 @@ int testPList()
         day1.removeaProg(name); 
     }
     while(done2 == false);
+    return 1;
+}
+
+int doweek()
+{
+    week newWeek;
+    cout << "week!" << endl;
+    
+    cout << "create a day " << endl;
+    char dayName[20]; 
+    cin >> dayName;
+    cin.ignore(100, '\n');
+    newWeek.addDay(dayName);
+
+    //insert day into week
+    //newWeek.createDay(dayName);
+
+    //display week (with day in it)
+
+    //pick a day to add a task to
+
+    //choose a task to create
+    //details for creating that task  
+    
+
+    //delete week
     return 1;
 }
