@@ -2,6 +2,7 @@
 #include "day.h"
 #include <iostream>
 
+//this should be named a scheduler
 class week
 {
     public:
@@ -27,10 +28,14 @@ class week
         //removeall
     protected:
         int deleteDll(day *& head);
-        int displayWeek(day *& head);
+        int displayWeek(day *& head, int i); 
+        int displayDll(day *& head);
+
         int arraySize;  //force human input
         int hI;         //day
-        day ** head; //3 lists of days
+
+        day ** array; //an arr of head pointer
+
         //head[hI].functionName();
         int addDay(char * name, day *& head);
         int removeAllDays();

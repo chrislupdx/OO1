@@ -11,7 +11,7 @@ task::task()
 {
     name = NULL; 
     done = false; //default constructor invokes done false by default 
-    next = NULL;
+    //next = NULL;
 }
 
 //parameterized constructor

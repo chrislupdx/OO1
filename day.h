@@ -5,8 +5,7 @@
 class feelsList
 {
     public:
-        feelsList();
-        ~feelsList();
+        feelsList(); ~feelsList();
         int addFeelWrap(feeling & new_feel); //add to the head of the list?
         int displayFeels(); //iterate through and display each
         int removeFeel(char * name_torm); //find and remove
@@ -54,34 +53,55 @@ class cryList
         int removeAllCries(cry *& cry);
 };
 
+class node
+{
+    public:
+        node();
+        ~node();
+        node(task * task_toadd);
+        node * & to_previous();
+        node * & to_next();
+        task *& g_task();        
+    protected:
+        task * newTask;
+        node * previous;
+        node * next;
+};
+
 class day
 {
     public:
-        day(); //constructor for the class itself
+        day(int size); //constructor for the class itself
         ~day();
         day(char * name);
+        int display();
+        int display(int i);
         int displayDay(); //calls all 3 disaply functions
         int addNode(char * dayName, day *& head); 
         int addNode(char * dayName);
-        int displayFList();
-        int addFeeling(feeling & new_feel); //changed to taking refs4consistency
-        int removeFeeling(char * name_torm);
-        int displayCList();
-        int addaCrying(cry & new_cry);
-        int removeaCrying(char * name_torm);
-        int displayPList();
-        int addaProgram(program & new_program);
+        //int displayFList();
+        //int addFeeling(feeling & new_feel); //changed to taking refs4consistency
+        //int removeFeeling(char * name_torm);
+        //int displayCList();
+        //int addaCrying(cry & new_cry);
+        //int removeaCrying(char * name_torm);
+        //int displayPList();
+        //int addaProgram(program & new_program);
+
+        int insert(task * task_toadd, int pos);
         int removeaProg(char * name_torm);
-        day * & to_nextDay(); //getters
-        day * & to_prevDay(); //getters
+        //day * & to_nextDay(); //getters
+        //day * & to_prevDay(); //getters
 
+        //it wants to be a node and a managing class at the same time!
     protected:
-        day * prevDay;
-        day * nextDay;
-
-        char * dayOfWeek; //name 
-        feelsList fList;
-        cryList cList;
-        pList progList;
+        int max;
+        //day * prevDay; 
+        //day * nextDay;
+        node ** array; 
+        //char * dayOfWeek; //name 
+        //feelsList fList;
+        //cryList cList;
+        //pList progList;
 };
 

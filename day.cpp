@@ -95,193 +95,193 @@ cryList::cryList()
     nextC = NULL;
 }
 
-int cryList::removeAllCries(cry *& head)
-{
-    if(!head) return 0;
+//int cryList::removeAllCries(cry *& head)
+//{
+//    if(!head) return 0;
+//
+//    int count = 1 + removeAllCries(head->to_next()); //traversal occurs here
+//    delete head;
+//    head = NULL;
+//    return count;
+//}
 
-    int count = 1 + removeAllCries(head->to_next()); //traversal occurs here
-    delete head;
-    head = NULL;
-    return count;
-}
+//cryList::~cryList()
+//{
+//    if(nextC)
+//    {
+//        removeAllCries(nextC);
+//    }
+//}
 
-cryList::~cryList()
-{
-    if(nextC)
-    {
-        removeAllCries(nextC);
-    }
-}
+//int cryList::addCry(cry & new_cry, cry *& head)
+//{
+//    if(!head) return 0;
+//    addCry(new_cry, head->to_next());
+//    if(!head->to_next())
+//    {
+//        cry * cTa = new cry;
+//        cTa->copyCry(new_cry);
+//        head->to_next() = cTa;
+//        cTa->to_next() = NULL; 
+//    }
+//    return 1;
+//}
 
-int cryList::addCry(cry & new_cry, cry *& head)
-{
-    if(!head) return 0;
-    addCry(new_cry, head->to_next());
-    if(!head->to_next())
-    {
-        cry * cTa = new cry;
-        cTa->copyCry(new_cry);
-        head->to_next() = cTa;
-        cTa->to_next() = NULL; 
-    }
-    return 1;
-}
+//int cryList::addaCrying(cry & new_cry)
+//{
+//    if(nextC == NULL)
+//    {
+//        nextC = new cry;
+//        nextC->copyCry(new_cry);
+//        nextC->to_next() = NULL;
+//        return 0;
+//    }
+//    else
+//    {
+//    addCry(new_cry, nextC);
+//    }
+//    return 1;
+//}
 
-int cryList::addaCrying(cry & new_cry)
-{
-    if(nextC == NULL)
-    {
-        nextC = new cry;
-        nextC->copyCry(new_cry);
-        nextC->to_next() = NULL;
-        return 0;
-    }
-    else
-    {
-    addCry(new_cry, nextC);
-    }
-    return 1;
-}
+//int cryList::removeCry(char * name_of_torm, cry *& head)
+//{
+//    if(!head) return 0;
+//    removeCry(name_of_torm, head->to_next());
+//    if(head->compareCryName(name_of_torm) == 0)
+//    {
+//        cry * temp = head->to_next();
+//        delete head;
+//        head = temp;
+//    }
+//
+//    return 1;
+//}
 
-int cryList::removeCry(char * name_of_torm, cry *& head)
-{
-    if(!head) return 0;
-    removeCry(name_of_torm, head->to_next());
-    if(head->compareCryName(name_of_torm) == 0)
-    {
-        cry * temp = head->to_next();
-        delete head;
-        head = temp;
-    }
+//int cryList::removeCry(char * name_of_torm)
+//{
+//    return removeCry(name_of_torm, nextC);
+//}
+//
+//int cryList::displayCries()
+//{
+//    return displayCries(nextC);
+//}
 
-    return 1;
-}
-
-int cryList::removeCry(char * name_of_torm)
-{
-    return removeCry(name_of_torm, nextC);
-}
-
-int cryList::displayCries()
-{
-    return displayCries(nextC);
-}
-
-int cryList::displayCries(cry *& head)
-{
-    if(!head) return 0;
-    
-    head->displayCry();
-    std::cout << std::endl;
-    return displayCries(head->to_next()) + 1;
-}
-
-
-int feelsList::removeAllFeels(feeling *& head)
-{
-    if(!head) return 0;
-
-    int count = 1 + removeAllFeels(head->to_next()); //traversal occurs here
-
-    delete head;
-    head = NULL;
-
-    return count;
-}
+//int cryList::displayCries(cry *& head)
+//{
+//    if(!head) return 0;
+//    
+//    head->displayCry();
+//    std::cout << std::endl;
+//    return displayCries(head->to_next()) + 1;
+//}
+//
+//
+//int feelsList::removeAllFeels(feeling *& head)
+//{
+//    if(!head) return 0;
+//
+//    int count = 1 + removeAllFeels(head->to_next()); //traversal occurs here
+//
+//    delete head;
+//    head = NULL;
+//
+//    return count;
+//}
 
 //default feelsList destructor
-feelsList::~feelsList()
-{
-    if(next)
-    {
-        removeAllFeels(next);
-    }
-}
+//feelsList::~feelsList()
+//{
+//    if(next)
+//    {
+//        removeAllFeels(next);
+//    }
+//}
 
-feelsList::feelsList()
-{
-    next = NULL; 
-}
+//feelsList::feelsList()
+//{
+//    next = NULL; 
+//}
 
-int feelsList::displayFeels()
-{
-    return displayFeels(next);
-}
+//int feelsList::displayFeels()
+//{
+//    return displayFeels(next);
+//}
 
 //recursive call
-int feelsList::displayFeels(feeling *& head)
-{
-    if(!head) return 0;
-
-    head->displayFeel();
-    std::cout << std::endl;
-
-    return displayFeels(head->to_next()) + 1; //traverse
-}
+//int feelsList::displayFeels(feeling *& head)
+//{
+//    if(!head) return 0;
+//
+//    head->displayFeel();
+//    std::cout << std::endl;
+//
+//    return displayFeels(head->to_next()) + 1; //traverse
+//}
 
 //traverse and find
-int feelsList::removeFeel(char * name_of_torm, feeling *& head)
-{
-    if(!head) return 0;
+//int feelsList::removeFeel(char * name_of_torm, feeling *& head)
+//{
+//    if(!head) return 0;
+//
+//    removeFeel(name_of_torm, head->to_next());
+//    //if match 
+//    if(head->compareFeelName(name_of_torm) == 0)
+//    {
+//        feeling * temp = head->to_next();
+//        delete head;
+//        head = temp;
+//    }
+//
+//    return 1;
+//}
 
-    removeFeel(name_of_torm, head->to_next());
-    //if match 
-    if(head->compareFeelName(name_of_torm) == 0)
-    {
-        feeling * temp = head->to_next();
-        delete head;
-        head = temp;
-    }
-
-    return 1;
-}
-
-int feelsList::removeFeel(char * name_of_torm)
-{
-    return removeFeel(name_of_torm, next);
-}
+//int feelsList::removeFeel(char * name_of_torm)
+//{
+//    return removeFeel(name_of_torm, next);
+//}
 
 //recursive call
-int feelsList::addFeel(feeling & new_feel, feeling *& head)
-{
-    if(!head) return 0;
-
-    addFeel(new_feel, head->to_next()); //traverse/recurse
-
-    if(!head->to_next()) //if@EOL
-    {
-        feeling * fTa = new feeling;
-        fTa->copyFeeling(new_feel);
-        head->to_next() = fTa;
-        fTa->to_next() = NULL;
-    }
-    return 1;
-}
-
-int feelsList::addFeelWrap(feeling & new_feel)
-{
-    //next != null @ the day layer...
-    if(next == NULL) //if empty
-    {
-        next = new feeling;
-        next->copyFeeling(new_feel);
-        next->to_next() = NULL; 
-        return 0;
-    }
-    else
-    {
-    addFeel(new_feel, next); //recursive call handles traversal
-    }
-    return 1;
-}
+//int feelsList::addFeel(feeling & new_feel, feeling *& head)
+//{
+//    if(!head) return 0;
+//
+//    addFeel(new_feel, head->to_next()); //traverse/recurse
+//
+//    if(!head->to_next()) //if@EOL
+//    {
+//        feeling * fTa = new feeling;
+//        fTa->copyFeeling(new_feel);
+//        head->to_next() = fTa;
+//        fTa->to_next() = NULL;
+//    }
+//    return 1;
+//}
+//
+//int feelsList::addFeelWrap(feeling & new_feel)
+//{
+//    //next != null @ the day layer...
+//    if(next == NULL) //if empty
+//    {
+//        next = new feeling;
+//        next->copyFeeling(new_feel);
+//        next->to_next() = NULL; 
+//        return 0;
+//    }
+//    else
+//    {
+//    addFeel(new_feel, next); //recursive call handles traversal
+//    }
+//    return 1;
+//}
 
 //default day constructor
-day::day()
-{
-    prevDay = NULL;
-    nextDay = NULL;
-    //no allocation for the c/f/p lists?    
-} 
+//day::day()
+//{
+//    prevDay = NULL;
+//    nextDay = NULL;
+//    //no allocation for the c/f/p lists?    
+//} 
 
 day::~day()
 {
@@ -289,74 +289,148 @@ day::~day()
     //call proglist destructor
 }
 
-day::day(char * name)
-{
-    dayOfWeek = name;
-}
+//day::day(char * name)
+//{
+    //dayOfWeek = name;
+//}
 
 //calls feelList's display
-int day::displayFList()
-{
-    return fList.displayFeels();
-}
+//int day::displayFList()
+//{
+//    return fList.displayFeels();
+//}
 
-int day::removeFeeling(char * name_torm)
-{
-    return fList.removeFeel(name_torm);
-}
+//int day::removeFeeling(char * name_torm)
+//{
+//    return fList.removeFeel(name_torm);
+//}
 
-int day::addFeeling(feeling & new_feel)
-{
-    //does this function need to pass anything else down
-    fList.addFeelWrap(new_feel);
-    return 1;
-}
+//int day::addFeeling(feeling & new_feel)
+//{
+//    //does this function need to pass anything else down
+//    fList.addFeelWrap(new_feel);
+//    return 1;
+//}
 
-int day::displayCList()
-{
-    return cList.displayCries();
-}
+//int day::displayCList()
+//{
+//    return cList.displayCries();
+//}
 
-int day::addaCrying(cry & new_cry)
-{
-    return cList.addaCrying(new_cry);
-}
+//int day::addaCrying(cry & new_cry)
+//{
+//    return cList.addaCrying(new_cry);
+//}
 
-int day::removeaCrying(char * name_torm)
-{
-    return cList.removeCry(name_torm);
-}
+//int day::removeaCrying(char * name_torm)
+//{
+//    return cList.removeCry(name_torm);
+//}
 
-int day::displayPList()
-{
-   return progList.displayProgs();
-}
+//int day::displayPList()
+//{
+//   return progList.displayProgs();
+//}
 
-int day::addaProgram(program & new_program)
-{
-    return progList.addP(new_program);
-}
+//int day::addaProgram(program & new_program)
+//{
+//    return progList.addP(new_program);
+//}
 
-int day::removeaProg(char * name_torm)
-{
-    return progList.removeProg(name_torm);
-}
+//int day::removeaProg(char * name_torm)
+//{
+//    return progList.removeProg(name_torm);
+//}
 
 int day::displayDay()
 {
-    std::cout << dayOfWeek << std::endl;
+    //std::cout << dayOfWeek << std::endl;
     
-    std::cout << "Programming tasks " << std::endl;
-    displayPList(); 
+    //std::cout << "Programming tasks " << std::endl;
+    //displayPList(); 
 
-    std::cout << "Feelings tasks " << std::endl;
-    displayFList();
+    //std::cout << "Feelings tasks " << std::endl;
+    //displayFList();
 
-    std::cout << "Crying tasks " << std::endl;
-    displayFList();
+    //std::cout << "Crying tasks " << std::endl;
+    //displayFList();
 
     return 1;
 }
 
-day *& day::to_nextDay() { return nextDay; }
-day *& day::to_prevDay() { return prevDay; }
+//day *& day::to_nextDay() { return nextDay; }
+//day *& day::to_prevDay() { return prevDay; } 
+
+node::node()
+{
+    previous = NULL;
+    next = NULL; 
+    newTask = NULL;
+}
+
+day::day(int size)
+{
+    max = size;
+    array = new node * [max];
+    for(int i = 0; i < max; i++)
+    {
+        array[i] = NULL;
+    }
+}
+
+int day::insert(task * tasktoadd, int pos)
+{
+    if(!array[pos])
+    {
+        array[pos] = new node(tasktoadd);
+        array[pos]->to_previous() = NULL;
+        array[pos]->to_next() = NULL;
+        return 1;
+    }
+    //else
+    //{ 
+        node * temp = new node(tasktoadd); 
+        temp->to_next() = array[pos]; 
+        array[pos]->to_previous() = temp;
+        temp->to_next() = array[pos]; 
+        array[pos] = temp;
+        return 1;
+    //}
+}
+
+int day::display()
+{
+    int x = 0;
+    return display(x);
+}
+
+//recursive
+int day::display(int i)
+{
+    if(max == i) return 0;
+   
+    if(array[i] != NULL)  
+    {
+        std::cout << "index is " << i << std::endl;
+        array[i]->g_task()->displayTask(); //upcasting!
+    }
+    i++;
+    return display(i) + 1;
+}
+
+node::node(task * task_toadd)
+{
+     newTask = task_toadd;
+     next = NULL;
+     previous = NULL;
+}
+
+//node::~node()
+//{
+//    previous = null;
+//    next = null;
+//}
+
+task *& node::g_task() { return newTask;}
+node *& node::to_next() { return next; }
+node *& node::to_previous() {return previous; }

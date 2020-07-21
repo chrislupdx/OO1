@@ -17,7 +17,7 @@ class task
     protected:
         char * name; 
         bool done; 
-        task * next;
+        //task * next; 
 };
 
 //this derived class has a doubly linked list of feelings
